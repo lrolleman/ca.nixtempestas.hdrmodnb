@@ -1,0 +1,14 @@
+{
+    "enabled" : true,
+    "context" : "client",
+    "identifier" : "ca.nixtempestas.hdrmodnb",
+    "display_name" : "Modded Post Processing Chain (no bloom)",
+    "description" : "exterminans' post changes to make things look better",
+    "author" : "exterminans",
+    "category": [
+      "appearance"
+    ],
+    "date" : "2015/05/26",
+    "version" : "1.0",
+    "signature" : "(not yet implemented)"
+}

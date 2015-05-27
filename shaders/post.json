@@ -1,0 +1,392 @@
+{
+  "effects": [
+    {
+      "name": "Post",
+      "lit": false,
+      "hdr": false,
+      "virtual_textured": false,
+      "transparent": false,
+      "techniques": [
+        {
+          "name": "Default",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_copy.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "DefaultBlend",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_copy.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "blend": {
+            "enabled": true,
+            "source": "one",
+            "dest": "inv_src_alpha",
+            "op": "add"
+          },
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "Downsample",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_downsample.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "FXAA",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_fxaa.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "FXAABlend",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_fxaa.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "blend": {
+            "enabled": true,
+            "source": "one",
+            "dest": "one",
+            "op": "add"
+          },
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "BloomGlowSourceCopy",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_glow.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "PostLight",
+          "vertex": "position_color_uv.vs",
+          "pixel": "post_copy.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "blend": {
+            "enabled": true,
+            "source": "one",
+            "dest": "one",
+            "op": "add"
+          },
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "PostCopyDepthViz",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_copy_depthviz.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "PostCopyAlpha",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_showalphaonly.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "FBBMip",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_fbbmip.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "Luminance",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_luminance.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "LuminanceDownsample",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_lum_downsample.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "HdrCompose",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_hdr_compose.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "DefaultFlipped",
+          "vertex": "quad_color_uv_flipped.vs",
+          "pixel": "post_copy_degamma.fs",
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "Cursor",
+          "vertex": "quad_color_uv_scaled.vs",
+          "pixel": "post_copy.fs",
+          "blend": {
+            "enabled": true,
+            "source": "src_alpha",
+            "dest": "inv_src_alpha",
+            "op": "add"
+          }
+        },
+        {
+          "name": "SAO_DownscaleAndReconstruct",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "sao_downscale_and_reconstruct.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "SAO_Apply",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "sao_apply.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "SAO_Compose",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "sao_compose.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "blend": {
+            "enabled": true,
+            "source": "dest",
+            "dest": "zero",
+            "op": "add"
+          },
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "SAO_Blur",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "sao_blur.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+	    {
+          "name": "RunningAvg",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_hdr_average.fs",
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        },
+        {
+          "name": "CopyRed",
+          "vertex": "quad_color_uv.vs",
+          "pixel": "post_copy_redonly.fs",
+          "wrap": [
+            {
+              "texture": "PostSourceTexture",
+              "u": "clamp",
+              "v": "clamp",
+              "w": "clamp"
+            }
+          ],
+          "depth": {
+            "write": false,
+            "read": false,
+            "compare": "less"
+          }
+        }
+      ]
+    }
+  ]
+}
